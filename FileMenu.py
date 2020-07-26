@@ -55,7 +55,7 @@ class Example(Frame):
         fileMenu.config(bg = themeBg) 
 
         # image = Image.open(os.path.join(script_dir, 'fleur.jpg'))
-        photo = PhotoImage(file=r'image.png')
+        photo = PhotoImage(file=r'image3.png')
         label2 = ttk.Label(image=photo)
         label2.image = photo # keep a reference!
         # label2.pack()
@@ -69,9 +69,9 @@ class Example(Frame):
         fileMenu.config(bg = themeBg) 
         submenu.add_command(label='First Page            ', underline=0, accelerator='                      Home')
         # submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
-        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
-        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
-        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
+        submenu.add_command(label="   Bookmarks", image=photo,compound=LEFT, underline=3)
+        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT, underline=0)
+        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT, underline=0)
         submenu.add_command(label="Mail")
         fileMenu.add_cascade(label='Import', menu=submenu, underline=0)
 

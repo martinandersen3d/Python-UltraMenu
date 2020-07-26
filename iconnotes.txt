@@ -1,0 +1,5 @@
+24x24
+
+175,175,175
+
+https://github.com/Pythonity/icon-font-to-png
