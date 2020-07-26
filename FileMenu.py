@@ -15,7 +15,7 @@ from tkinter import * #ttk, PhotoImage, Label, Menu, Frame, Button
 from tkinter import ttk #ttk, PhotoImage, Label, Menu, Frame, Button
 from PIL import Image
 from ttkthemes import ThemedTk
-
+import tkinter.font as tkFont
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 class Example(Frame):
@@ -28,13 +28,31 @@ class Example(Frame):
 
     def initUI(self):
 
+        themeBg = self.from_rgb((60,63,65))
+        themeFg = self.from_rgb((187,187,187))
+        themeActiveBg = self.from_rgb((75,110,175))
+        themeActiveFg = self.from_rgb((200,200,200))
+        # relief (menu border) : must be flat, groove, raised, ridge, solid, or sunken
+        themeRelief = 'flat'
+        
+        # default_font = tkFont.nametofont("TkDefaultFont")
+        custom_font = tkFont.Font(family="Helvetica", size=9)
+        
         self.master.title("Submenu")
 
+        # https://www.javatpoint.com/python-tkinter-menu
+        
         menubar = Menu(self.master, tearoff=False)
         self.master.config(menu=menubar)
 
-        fileMenu = Menu(menubar, tearoff=False)
-        fileMenu.config(bg = "GREEN") 
+        
+        fileMenu = Menu(menubar, tearoff=False,  
+                        background=themeBg , foreground=themeFg,
+                       activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
+                       activeborderwidth=0,
+                        relief=themeRelief
+                       )
+        fileMenu.config(bg = themeBg) 
 
         # image = Image.open(os.path.join(script_dir, 'fleur.jpg'))
         photo = PhotoImage(file=r'image.png')
@@ -42,9 +60,17 @@ class Example(Frame):
         label2.image = photo # keep a reference!
         # label2.pack()
 
-        submenu = Menu(fileMenu, tearoff=False)
-        submenu.add_command(label='First Page', underline=0, accelerator='Home')
+        submenu = Menu(fileMenu, tearoff=False,  
+                        background=themeBg , foreground=themeFg,
+                       activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
+                       activeborderwidth=0,
+                        relief=themeRelief
+                       )
+        fileMenu.config(bg = themeBg) 
+        submenu.add_command(label='First Page            ', underline=0, accelerator='                      Home')
         # submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
+        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
+        submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
         submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
         submenu.add_command(label="Mail")
         fileMenu.add_cascade(label='Import', menu=submenu, underline=0)
@@ -72,6 +98,11 @@ class Example(Frame):
         # self.menubar.add_command(command=self.menu_read_next, image=self.read_next_image)
         # self.menubar.add_command(command=self.menu_read_last, image=self.read_last_image)
 
+    def from_rgb(self, rgb):
+        """translates an rgb tuple of int to a tkinter friendly color code
+        """
+        return "#%02x%02x%02x" % rgb 
+    
     def loadImage():
         # img = Image.open("fleur.jpg")
         # filename = PhotoImage(img)
