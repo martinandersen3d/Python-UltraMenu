@@ -41,7 +41,7 @@ class Example(Frame):
         self.master.title("Submenu")
 
         # https://www.javatpoint.com/python-tkinter-menu
-        
+        # 	postcommand	The postcommand can be set to any of the function which is called when the mourse hovers the menu.
         menubar = Menu(self.master, tearoff=False)
         self.master.config(menu=menubar)
 
@@ -60,7 +60,7 @@ class Example(Frame):
         label2.image = photo # keep a reference!
         # label2.pack()
 
-        submenu = Menu(fileMenu, tearoff=False,  
+        submenu = Menu(fileMenu, tearoff=False,  title="sdfsdfsdf",
                         background=themeBg , foreground=themeFg,
                        activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
                        activeborderwidth=0,
