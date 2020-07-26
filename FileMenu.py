@@ -11,8 +11,11 @@ Author: Jan Bodnar
 Website: www.zetcode.com
 """
 import os.path
-from tkinter import *
+from tkinter import * #ttk, PhotoImage, Label, Menu, Frame, Button
+from tkinter import ttk #ttk, PhotoImage, Label, Menu, Frame, Button
 from PIL import Image
+from ttkthemes import ThemedTk
+
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 class Example(Frame):
@@ -31,15 +34,17 @@ class Example(Frame):
         self.master.config(menu=menubar)
 
         fileMenu = Menu(menubar, tearoff=False)
+        fileMenu.config(bg = "GREEN") 
 
         # image = Image.open(os.path.join(script_dir, 'fleur.jpg'))
         photo = PhotoImage(file=r'image.png')
-        label2 = Label(image=photo)
+        label2 = ttk.Label(image=photo)
         label2.image = photo # keep a reference!
         # label2.pack()
 
         submenu = Menu(fileMenu, tearoff=False)
         submenu.add_command(label='First Page', underline=0, accelerator='Home')
+        # submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
         submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
         submenu.add_command(label="Mail")
         fileMenu.add_cascade(label='Import', menu=submenu, underline=0)
@@ -86,11 +91,23 @@ class Example(Frame):
 
 def main():
 
-    root = Tk()
+    # root = Tk()
+    root = ThemedTk(theme="clearlooks")
+    
+    # root = Tk()
+    # root.style = Style()
+    # #('clam', 'alt', 'default', 'classic')
+    # root.style.theme_use("clam")
+    
     root.geometry("250x150+2900+300")
+    button=ttk.Button(root,text="Click Me", underline=6)
+    button.pack()
+    root.configure(bg='red')
     app = Example()
     root.mainloop()
 
 
 if __name__ == '__main__':
     main()
+    
+
