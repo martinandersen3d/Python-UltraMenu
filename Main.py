@@ -16,7 +16,18 @@ tree.column("c1", width=300, minwidth=300)
 tree.heading("#0", text="#")
 tree.heading("#1", text="Command")
 
-row1 = tree.insert("","end",text="Æ", values=("My Command 1", "nope") )
-row2 = tree.insert("","end",text="Æ", values=("My Command 2", "nope") )
+text1 = Text(root, height=1, font="Helvetica 12")
+text1.tag_configure("bold", font="Helvetica 12 bold")
+
+text1.insert("end", "Hello, ") 
+text1.insert("end", "world", "bold") 
+text1.configure(state="disabled")
+
+row1 = tree.insert("","end",text="Æ", values=("My _Command 1", "nope"))
+row2 = tree.insert("","end",text="Æ", values=(text1, "nope") )
+
 tree.pack()
+
+button=Button(root,text="Click Me", underline=6)
+button.pack()
 root.mainloop()
