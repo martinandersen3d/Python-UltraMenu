@@ -1,0 +1,63 @@
+# Recommended hotkeys: super+space, super+enter, super+x
+
+# Application Launch list
+# Put links to the application in a directory structure as links.
+# The name of the application link can have a "#" or a "&" in the name as the Accelerator/Hotkey
+AppLaunchList:
+  hotkey: a
+  path: c:\myprograms\links\
+
+# Application Switch to list
+AppSwitcher:
+  hotkey: s
+
+# Workspace/Virtual dekstop Switch to list
+AppSwitcher:
+  hotkey: w
+
+# Window Position Presets
+WindowsPositionPresets:
+  hotkey: w
+  # add new
+  # delete
+
+# emoji?
+
+# google search?
+
+# youtube search?
+
+# Clipboard History
+ClipboardHistory:
+  hotkey: h
+  path: c:\myprograms\links\
+
+# Snippets
+Snippets:
+  hotkey: s
+  path: c:\myprograms\links\
+
+# Scripts
+Scripts:
+  hotkey: s
+  path: c:\myprograms\links\
+
+# convert files?
+
+# Directory Bookmarks
+Directory:
+  hotkey: d
+  path: c:\myprograms\links\
+
+# Terminal Bookmarks
+TerminalBookmarks:
+  hotkey: b
+  terminal: c:\windows\cmd.exe
+  path: c:\myprograms\links\
+
+# media controls?
+
+# System Settings
+# SystemSettings:
+    # hotkey: ?
+
