@@ -47,12 +47,14 @@ class Example(Frame):
 
         
         fileMenu = Menu(menubar, tearoff=False,  
-                        background=themeBg , foreground=themeFg,
-                       activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
-                       activeborderwidth=0,
-                        relief=themeRelief
+                    #     background=themeBg , foreground=themeFg,
+                    #    activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
+                    #    activeborderwidth=0,
+                    #     relief=themeRelief
                        )
-        fileMenu.config(bg = themeBg) 
+        fileMenu.config(
+            # bg = themeBg
+            ) 
 
         # image = Image.open(os.path.join(script_dir, 'fleur.jpg'))
         photo = PhotoImage(file=r'image3.png')
@@ -61,12 +63,14 @@ class Example(Frame):
         # label2.pack()
 
         submenu = Menu(fileMenu, tearoff=False,  title="sdfsdfsdf",
-                        background=themeBg , foreground=themeFg,
-                       activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
-                       activeborderwidth=0,
-                        relief=themeRelief
+                    #     background=themeBg , foreground=themeFg,
+                    #    activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
+                    #    activeborderwidth=0,
+                    #     relief=themeRelief
                        )
-        fileMenu.config(bg = themeBg) 
+        fileMenu.config(
+            # bg = themeBg
+            ) 
         submenu.add_command(label='First Page            ', underline=0, accelerator='                      Home')
         # submenu.add_command(label="Bookmarks", image=photo,compound=LEFT)
         submenu.add_command(label="   Bookmarks", image=photo,compound=LEFT, underline=3)
@@ -133,7 +137,7 @@ def main():
     root.geometry("250x150+2900+300")
     button=ttk.Button(root,text="Click Me", underline=6)
     button.pack()
-    root.configure(bg='red')
+    # root.configure(bg='red')
     app = Example()
     root.mainloop()
 
