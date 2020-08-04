@@ -7,8 +7,8 @@ box  = Gtk.EventBox ()
 area = Gtk.DrawingArea ()
 
 def onclick (box, event):
-        return True
-#    print event.x, event.y
+    return True
+    print(event.x, event.y)
 
 box.connect ('button-press-event', onclick)
 
