@@ -25,14 +25,20 @@ class MyWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self)
         self.resize(100, 100)
+        # Set window position
+        # self.set_position(Gtk.WindowPosition.CENTER)
+        # self.set_position(Gtk.WindowPosition.NONE)
+        self.set_position(Gtk.WindowPosition.MOUSE)
+        # self.set_position(Gtk.WindowPosition.CENTER_ON_PARENT)
 
         self._build_context_menu()
-
+        
         # button event
         self.connect('button-press-event', self._on_button_press_event)
 
         # close event
         self.connect('delete-event', self._on_delete_event)
+
 
     def _build_context_menu(self):
 
@@ -110,6 +116,7 @@ class MyWindow(Gtk.Window):
         # -------------------------------
         
         self.cmenu.show_all()
+        
 
     def on_menu_open():
         return True
