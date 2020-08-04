@@ -48,6 +48,14 @@ UI_INFO = """
     <menuitem action='EditCopy' />
     <menuitem action='EditPaste' />
     <menuitem action='EditSomething' />
+    <menu action='ChoicesMenu'>
+      <menuitem action='ChoiceOne'/>
+      <menuitem action='ChoiceTwo'/>
+      <menuitem action='EditCopy' />
+        <menuitem action='EditPaste' />
+      <separator />
+      <menuitem action='ChoiceThree'/>
+    </menu>
   </popup>
 </ui>
 """
