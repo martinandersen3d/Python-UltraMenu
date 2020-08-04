@@ -23,9 +23,14 @@ WindowsPositionPresets:
 
 # emoji?
 
-# google search?
-
-# youtube search?
+# Search:
+Search:
+  hotkey: f
+  # Google
+  # youtube
+  # File
+  # Github
+  # devdoc
 
 # Clipboard History
 ClipboardHistory:

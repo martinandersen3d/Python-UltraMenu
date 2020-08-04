@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 # https://stackoverflow.com/questions/54847454/right-click-context-menu-with-pygobject
 # http://zetcode.com/gui/gtksharp/menus/
-# https://athenajc.gitbooks.io/python-gtk-3-api/content/gtk-group/gtkmenuitem.html
-# https://www.tutorialspoint.com/pygtk/pygtk_menubar_menu_menuitem.htm
-# https://stackoverflow.com/questions/52847909/how-to-add-a-sub-menu-to-a-gtk-menu
-
+# Acc-group: https://athenajc.gitbooks.io/python-gtk-3-api/content/gtk-group/gtkmenuitem.html
+# Item:     https://www.tutorialspoint.com/pygtk/pygtk_menubar_menu_menuitem.htm
+# Submenu:  https://stackoverflow.com/questions/52847909/how-to-add-a-sub-menu-to-a-gtk-menu
+# Image:    https://stackoverflow.com/questions/4318943/how-can-a-custom-icon-be-used-in-an-image-menu-item
 # The following are some of the predefined modifiers −
 
 # SHIFT_MASK
