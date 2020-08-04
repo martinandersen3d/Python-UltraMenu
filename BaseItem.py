@@ -1,5 +1,7 @@
 import uuid 
 
+# dictionary = {'key1': 'val1', '1': 'val2'}
+
 class BaseItem:
     def __init__(self, x, y, z):
         # Set a random string as the uid for the object
