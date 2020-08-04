@@ -6,6 +6,7 @@
 # Item:     https://www.tutorialspoint.com/pygtk/pygtk_menubar_menu_menuitem.htm
 # Submenu:  https://stackoverflow.com/questions/52847909/how-to-add-a-sub-menu-to-a-gtk-menu
 # Image:    https://stackoverflow.com/questions/4318943/how-can-a-custom-icon-be-used-in-an-image-menu-item
+# GTK icons: https://stackoverflow.com/questions/7539621/where-gtk-finds-icon-names-to-use-with-gtk-image-new-from-icon-name/31908975
 # The following are some of the predefined modifiers −
 
 # SHIFT_MASK
@@ -89,9 +90,12 @@ class MyWindow(Gtk.Window):
         img.set_from_file('./image.png')
         imageItem = Gtk.ImageMenuItem(Gtk.STOCK_NEW, 'New')
         imageItem.set_image(img)
+        imageItem.set_label('Custom Image Label')
         self.cmenu.append(imageItem)
         
-        # ------------------------------------
+        # Submenu custom icon ------------------------------------
+        
+        
         
         self.cmenu.show_all()
 
