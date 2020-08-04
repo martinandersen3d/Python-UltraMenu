@@ -78,7 +78,8 @@ class MyWindow(Gtk.Window):
         
         # Image Item - Build in icon-------------------------------
         img = Gtk.Image()
-        img.set_from_stock(Gtk.STOCK_NEW, 1)
+        # img.set_from_stock(Gtk.STOCK_NEW, 1)
+        img.set_from_stock(Gtk.STOCK_DIRECTORY, 1)
         item = Gtk.ImageMenuItem('New')
         item.set_image(img)
         self.cmenu.append(item)
