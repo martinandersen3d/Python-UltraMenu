@@ -90,12 +90,19 @@ class MyWindow(Gtk.Window):
         img.set_from_file('./image.png')
         imageItem = Gtk.ImageMenuItem(Gtk.STOCK_NEW, 'New')
         imageItem.set_image(img)
-        imageItem.set_label('Custom Image Label')
+        imageItem.set_label('Custom Image _Label')
+        imageItem.set_use_underline(True)
         self.cmenu.append(imageItem)
         
         # Submenu custom icon ------------------------------------
         
+        # item = Gtk.MenuItem.new_with_mnemonic('_2 Submenu width Icon') 
+        # self.cmenu.append(item)
+        # self.sub_menu = Gtk.Menu()
+        # item.set_submenu(self.sub_menu)
         
+        
+        # -------------------------------
         
         self.cmenu.show_all()
 
