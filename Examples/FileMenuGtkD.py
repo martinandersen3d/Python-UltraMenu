@@ -87,7 +87,7 @@ class MyWindow(Gtk.Window):
         
         # Image Item - Custom icon-------------------------------
         img = Gtk.Image()
-        img.set_from_file('./image.png')
+        img.set_from_file('./Examples/Icons/image.png')
         imageItem = Gtk.ImageMenuItem(Gtk.STOCK_NEW, 'New')
         imageItem.set_image(img)
         imageItem.set_label('Custom Image _Label')

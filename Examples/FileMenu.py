@@ -57,7 +57,7 @@ class Example(Frame):
             ) 
 
         # image = Image.open(os.path.join(script_dir, 'fleur.jpg'))
-        photo = PhotoImage(file=r'image3.png')
+        photo = PhotoImage(file=r'./Examples/Icons/image3.png')
         label2 = ttk.Label(image=photo)
         label2.image = photo # keep a reference!
         # label2.pack()
