@@ -4,6 +4,7 @@
 # http://zetcode.com/gui/gtksharp/menus/
 # https://athenajc.gitbooks.io/python-gtk-3-api/content/gtk-group/gtkmenuitem.html
 # https://www.tutorialspoint.com/pygtk/pygtk_menubar_menu_menuitem.htm
+# https://stackoverflow.com/questions/52847909/how-to-add-a-sub-menu-to-a-gtk-menu
 
 # The following are some of the predefined modifiers −
 
@@ -66,10 +67,14 @@ class MyWindow(Gtk.Window):
         # self.cmenu.append(self.submenu_item)
         #  Menu can only be attached to a MenuItem and a MenuItem can only be added to a Menu or a Menubar.
 
-        item = Gtk.MenuItem("Submenu")
+        item = Gtk.MenuItem.new_with_mnemonic('_Submenu') 
         self.cmenu.append(item)
         self.sub_menu = Gtk.Menu()
         item.set_submenu(self.sub_menu)
+        
+        # Add item to submenu
+        self.cm_item2 = Gtk.MenuItem.new_with_mnemonic('Submenu _Item')
+        self.sub_menu.append(self.cm_item2)
         
         self.cmenu.show_all()
 
