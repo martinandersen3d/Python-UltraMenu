@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# https://developer.gimp.org/api/2.0/gtk/GtkWindow.html#gtk-window-set-decorated
+# https://stackoverflow.com/questions/29998606/in-gtk3-for-python-how-to-get-selected-menuitem-or-index-of-menuitem-selected
+# https://lazka.github.io/pgi-docs/Gtk-3.0/classes.html
 
 import gi
 
@@ -34,19 +37,32 @@ class TransparentWindow(Gtk.Window):
         self.menu = Gtk.Menu.new()
         self.menuItem = Gtk.MenuItem.new_with_mnemonic('_Something')
         self.menu.append(self.menuItem)
-        self.menu.show_all()
         
         # Seperator ---------------------------
         self.seperator = Gtk.SeparatorMenuItem()
         self.menu.append(self.seperator)
         
+        # Menu Item Quit -----------------------
+        self.menuItemQuit = Gtk.MenuItem.new_with_mnemonic('_Quit')
+        # self.menuItemQuit.add_action(Gtk.main_quit)
+        self.menu.append(self.menuItemQuit)
+        
+        # menuItem.select()
+        # self.menu.item_select(menuItem)
+        
+        # Show Popup Menu
+        self.menu.show_all()
+
         # -------------------------------------
         # Show Application Window
         self.show_all()
 
     def on_window_loaded(self, widget, context):
-        print('Loaded')
+        print('Window Gui is Loaded')
         self.menu.popup_at_pointer()
+        self.menuItem.select()
+        self.menuItem.set_use_underline(True)
+        
 
 TransparentWindow()
 Gtk.main()
