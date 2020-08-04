@@ -67,7 +67,7 @@ class MyWindow(Gtk.Window):
         # self.cmenu.append(self.submenu_item)
         #  Menu can only be attached to a MenuItem and a MenuItem can only be added to a Menu or a Menubar.
 
-        item = Gtk.MenuItem.new_with_mnemonic('_Submenu') 
+        item = Gtk.MenuItem.new_with_mnemonic('_1 Submenu') 
         self.cmenu.append(item)
         self.sub_menu = Gtk.Menu()
         item.set_submenu(self.sub_menu)
@@ -75,6 +75,22 @@ class MyWindow(Gtk.Window):
         # Add item to submenu
         self.cm_item2 = Gtk.MenuItem.new_with_mnemonic('Submenu _Item')
         self.sub_menu.append(self.cm_item2)
+        
+        # Image Item - Build in icon-------------------------------
+        img = Gtk.Image()
+        img.set_from_stock(Gtk.STOCK_NEW, 1)
+        item = Gtk.ImageMenuItem('New')
+        item.set_image(img)
+        self.cmenu.append(item)
+        
+        # Image Item - Custom icon-------------------------------
+        img = Gtk.Image()
+        img.set_from_file('./image.png')
+        imageItem = Gtk.ImageMenuItem(Gtk.STOCK_NEW, 'New')
+        imageItem.set_image(img)
+        self.cmenu.append(imageItem)
+        
+        # ------------------------------------
         
         self.cmenu.show_all()
 
