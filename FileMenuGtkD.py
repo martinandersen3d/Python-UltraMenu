@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # https://stackoverflow.com/questions/54847454/right-click-context-menu-with-pygobject
+# http://zetcode.com/gui/gtksharp/menus/
+# https://athenajc.gitbooks.io/python-gtk-3-api/content/gtk-group/gtkmenuitem.html
+# https://www.tutorialspoint.com/pygtk/pygtk_menubar_menu_menuitem.htm
+
+# The following are some of the predefined modifiers −
+
+# SHIFT_MASK
+# LOCK_MASK
+# CONTROL_MASK
+# BUTTON1_MASK
+# BUTTON1_MASK
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -22,10 +33,48 @@ class MyWindow(Gtk.Window):
         self.connect('delete-event', self._on_delete_event)
 
     def _build_context_menu(self):
+
+        # Add Simple Menu item ---------------------------
         self.cmenu = Gtk.Menu.new()
-        self.cm_item = Gtk.MenuItem.new_with_label('label')
+        # self.cm_item = Gtk.MenuItem.new_with_label('label')
+        self.cm_item = Gtk.MenuItem.new_with_mnemonic('_Lab_el')
         self.cmenu.append(self.cm_item)
+        
+        # Add Seperator ---------------------------
+        self.seperator = Gtk.SeparatorMenuItem()
+        self.cmenu.append(self.seperator)
+        
+        
+        # Add Simple Menu item + Hotkey group-----------------------------
+        accelgroup = Gtk.AccelGroup()
+        self.add_accel_group(accelgroup) 
+        # -----------------------------
+        # self.menuitem_open = Gtk.MenuItem(label="Open")      
+        self.menuitem_open = Gtk.MenuItem.new_with_mnemonic('_Open')     
+        self.menuitem_open.connect('activate', self.on_menu_open)
+        self.menuitem_open.add_accelerator("activate", 
+                                accelgroup,
+                                Gdk.keyval_from_name("o"),
+                                Gdk.ModifierType.CONTROL_MASK,
+                                Gtk.AccelFlags.VISIBLE)
+        self.cmenu.append(self.menuitem_open)
+        
+        
+        # Submenu-----------------------------
+        # self.submenu = Gtk.Menu.new()
+        # self.submenu_item = Gtk.MenuItem.new_with_mnemonic('L_abel2')
+        # self.cmenu.append(self.submenu_item)
+        #  Menu can only be attached to a MenuItem and a MenuItem can only be added to a Menu or a Menubar.
+
+        item = Gtk.MenuItem("Submenu")
+        self.cmenu.append(item)
+        self.sub_menu = Gtk.Menu()
+        item.set_submenu(self.sub_menu)
+        
         self.cmenu.show_all()
+
+    def on_menu_open():
+        return True
 
     def _on_delete_event(self, a, b):
         Gtk.main_quit()
