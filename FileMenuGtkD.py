@@ -96,10 +96,12 @@ class MyWindow(Gtk.Window):
         
         # Submenu custom icon ------------------------------------
         
-        # item = Gtk.MenuItem.new_with_mnemonic('_2 Submenu width Icon') 
-        # self.cmenu.append(item)
-        # self.sub_menu = Gtk.Menu()
-        # item.set_submenu(self.sub_menu)
+        # img2 = Gtk.Image()
+        # img2.set_from_stock(Gtk.STOCK_DIRECTORY, 1)
+        item2 = Gtk.ImageMenuItem(Gtk.STOCK_DIRECTORY, 'New')
+        self.cmenu.append(item2)
+        self.sub_menu2 = Gtk.Menu()
+        item2.set_submenu(self.sub_menu2)
         
         
         # -------------------------------
