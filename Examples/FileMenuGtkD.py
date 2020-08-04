@@ -7,6 +7,7 @@
 # Submenu:  https://stackoverflow.com/questions/52847909/how-to-add-a-sub-menu-to-a-gtk-menu
 # Image:    https://stackoverflow.com/questions/4318943/how-can-a-custom-icon-be-used-in-an-image-menu-item
 # GTK icons: https://stackoverflow.com/questions/7539621/where-gtk-finds-icon-names-to-use-with-gtk-image-new-from-icon-name/31908975
+# Runtime:  https://stackoverflow.com/questions/45142496/is-it-possible-to-edit-menu-items-in-runtime-in-python-using-gtk
 # The following are some of the predefined modifiers −
 
 # SHIFT_MASK

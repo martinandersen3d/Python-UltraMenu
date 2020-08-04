@@ -6,8 +6,8 @@ class BaseItem:
     def __init__(self, x, y, z):
         # Set a random string as the uid for the object
         self.uid = uuid.uuid4().hex
-        self.label = label
         self.iconPath = iconPath
+        self.label = label
         self.x = x
         self.y = y
         self.z = z
@@ -19,6 +19,11 @@ class BaseItem:
     
     # Get Children
     def getChildren(self):
+        return True
+    
+    
+    # Remove this object
+    def removeSelf(self):
         return True
     
     
