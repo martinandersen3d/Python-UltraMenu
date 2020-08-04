@@ -8,6 +8,8 @@ class BaseItem:
         self.uid = uuid.uuid4().hex
         self.iconPath = iconPath
         self.label = label
+        self.globalHotkey = globalHotkey
+        self.isSeperator = isSeparator
         self.x = x
         self.y = y
         self.z = z
