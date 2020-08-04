@@ -96,9 +96,12 @@ class MyWindow(Gtk.Window):
         
         # Submenu custom icon ------------------------------------
         
-        # img2 = Gtk.Image()
-        # img2.set_from_stock(Gtk.STOCK_DIRECTORY, 1)
+        img2 = Gtk.Image()
+        img2.set_from_stock(Gtk.STOCK_DIRECTORY, 1)
         item2 = Gtk.ImageMenuItem(Gtk.STOCK_DIRECTORY, 'New')
+        item2.set_image(img2)
+        item2.set_label('My _Folder')
+        item2.set_use_underline(True)
         self.cmenu.append(item2)
         self.sub_menu2 = Gtk.Menu()
         item2.set_submenu(self.sub_menu2)
