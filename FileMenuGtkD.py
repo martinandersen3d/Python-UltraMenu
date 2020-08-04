@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# https://stackoverflow.com/questions/54847454/right-click-context-menu-with-pygobject
+
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
