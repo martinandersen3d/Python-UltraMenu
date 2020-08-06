@@ -50,7 +50,8 @@ class Example(Frame):
                     #     background=themeBg , foreground=themeFg,
                     #    activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
                     #    activeborderwidth=0,
-                    #     relief=themeRelief
+                        relief=themeRelief,
+                    
                        )
         fileMenu.config(
             # bg = themeBg
@@ -66,7 +67,7 @@ class Example(Frame):
                     #     background=themeBg , foreground=themeFg,
                     #    activebackground=themeActiveBg, activeforeground=themeActiveFg, font=custom_font,
                     #    activeborderwidth=0,
-                    #     relief=themeRelief
+                        relief=themeRelief
                        )
         fileMenu.config(
             # bg = themeBg
