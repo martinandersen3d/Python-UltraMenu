@@ -19,7 +19,7 @@ from PySide2 import QtGui, QtCore
  
 class Window(QMainWindow):
     def __init__(self):
-        # super().__init__()
+        super().__init__()
  
         # self.setWindowTitle("Awesome xMenu")
         # self.setGeometry(2500,300,500,400)
@@ -36,7 +36,8 @@ class Window(QMainWindow):
         # print('column(%d)' % self.table.horizontalHeader().logicalIndexAt(pos))
         menu = QMenu()
         menu.addAction('Add')
-        menu.addAction('Delete')
+        exit = menu.addAction('Exit')
+        exit.triggered.connect(self.exit_app)
         menu.exec_(QCursor.pos())
  
         # self.show()
@@ -47,6 +48,7 @@ class Window(QMainWindow):
 
     def exit_app(self):
         self.close()
+        sys.exit(0)
  
     # def handleHeaderMenu(self, pos):
     #     print('column(%d)' % self.table.horizontalHeader().logicalIndexAt(pos))
