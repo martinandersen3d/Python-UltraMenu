@@ -1,0 +1,2 @@
+python pyside menu:
+https://stackoverflow.com/questions/9313631/qmenu-for-qtablewidget-in-pyside-pyqt
