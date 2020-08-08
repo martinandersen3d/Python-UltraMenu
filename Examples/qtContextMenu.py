@@ -16,46 +16,41 @@ from PySide2 import QtGui, QtCore
 # pip3 install pyperclip
 # import pyperclip
 # 
- 
+
+objectList = {}
+
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
- 
-        # self.setWindowTitle("Awesome xMenu")
-        # self.setGeometry(2500,300,500,400)
         
-        # Transparent Window background
-        # self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-        # self.setStyleSheet("background:transparent;")
+        self.create_menu()
+        self.add_directory('&Scripts', '/SettingsMartin/Scripts')
+        self.add_exit()
  
-        # menu = self.createDockWindows()
-        # menu = self.createPopupMenu()
-        # menu.addAction('sdf')
- 
-        # print('column(%d)' % self.table.horizontalHeader().logicalIndexAt(pos))
-        menu = QMenu()
-        menu.addAction('Add')
-        exit = menu.addAction('Exit')
+    def create_menu(self):
+        self.menu = QMenu()
+        self.menu.addAction('Add')
+        
+
+
+    def add_directory(self, label, dir):
+        qtIconFolder = QIcon(QApplication.style().standardIcon(QStyle.SP_DirIcon))        
+        qtIconFile = QIcon(QApplication.style().standardIcon(QStyle.SP_FileIcon))  
+        
+        dirMenu = self.menu.addMenu(qtIconFolder, label)  
+            
+
+    def add_exit(self):
+        qtIcon = QIcon(QApplication.style().standardIcon(QStyle.SP_DialogCloseButton))
+        exit = self.menu.addAction(qtIcon,'&Quit')      
+        self.menu.insertSeparator(exit)
         exit.triggered.connect(self.exit_app)
-        menu.exec_(QCursor.pos())
- 
-        # self.show()
- 
-    # def create_menu(self):
-    #     mainMenu = self.menuBar()
-    #     fileMenu = mainMenu.addMenu("&All Icons")
+        self.menu.exec_(QCursor.pos())
 
     def exit_app(self):
         self.close()
         sys.exit(0)
  
-    # def handleHeaderMenu(self, pos):
-    #     print('column(%d)' % self.table.horizontalHeader().logicalIndexAt(pos))
-    #     menu = QtGui.QMenu()
-    #     menu.addAction('Add')
-    #     menu.addAction('Delete')
-    #     menu.exec_(QtGui.QCursor.pos())
  
 myApp = QApplication(sys.argv)
 window = Window()
