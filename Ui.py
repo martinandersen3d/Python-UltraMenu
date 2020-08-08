@@ -39,3 +39,18 @@ class SubMenuItem(BaseItem):
 class SeperatorItem(BaseItem):
     def __init__(self, parentMenu, label: str):
         super().__init__(parentMenu, label)
+
+class FolderItem(BaseItem):
+    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path):
+        super().__init__(parentMenu, label, iconPath)
+        self.iconPath = iconPath
+        self.globalHotkey = globalHotkey
+        self.path = path
+
+class FileItem(BaseItem):
+    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path):
+        super().__init__(parentMenu, label, iconPath)
+        self.iconPath = iconPath
+        self.globalHotkey = globalHotkey
+        self.path = path
+    
