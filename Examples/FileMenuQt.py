@@ -6,7 +6,7 @@
 # https://doc.qt.io/qtforpython/gettingstarted.html
 # License: https://www.qt.io/download-open-source?hsCtaTracking=9f6a2170-a938-42df-a8e2-a9f0b1d6cdce%7C6cb0de4f-9bb5-4778-ab02-bfb62735f3e5
 
-from PySide2.QtWidgets import QApplication,QMainWindow, QAction
+from PySide2.QtWidgets import QApplication,QMainWindow, QAction, QStyle
 import sys
 from PySide2.QtGui import QIcon
  
@@ -37,12 +37,16 @@ class Window(QMainWindow):
  
         saveAction = QAction(QIcon('save.png'), "&Save", self)
         saveAction.setShortcut("s")
+        
+        qtIcon = QIcon(QApplication.style().standardIcon(QStyle.SP_DesktopIcon))
+        defaultIconAction = QAction(qtIcon, "Build-In Icon", self)
+        defaultIconAction.setShortcut("s")
 
         save2Action = QAction(QIcon('save.png'), "&Save", self)
         save2Action.setShortcut("Ctrl+S")
  
         exitAction = QAction(QIcon('exit.png'), "&Exit", self)
-        exitAction.setShortcut("Ctrl+X")
+        exitAction.setShortcut("Ctrl+S")
  
         exitAction.triggered.connect(self.exit_app)
  
@@ -51,6 +55,7 @@ class Window(QMainWindow):
         fileMenu.addAction(openAction)
         fileMenu.addMenu("addMenu")
         fileMenu.addAction(saveAction)
+        fileMenu.addAction(defaultIconAction)
         fileMenu.addAction(save2Action)
         # seperator
         fileMenu.insertSeparator(save2Action)
