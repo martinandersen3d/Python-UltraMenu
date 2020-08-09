@@ -31,13 +31,13 @@ class BaseItem:
     
 class MenuItem(BaseItem):
     def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str):
-        super().__init__(parentMenu, label, iconPath)
+        super().__init__(parentMenu, label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
     
 class SubMenuItem(BaseItem):
     def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str):
-        super().__init__(parentMenu, label, iconPath)
+        super().__init__(parentMenu, label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
 
@@ -47,15 +47,28 @@ class SeperatorItem(BaseItem):
 
 class FolderItem(BaseItem):
     def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path, action):
-        super().__init__(parentMenu, label, iconPath)
+        super().__init__(parentMenu, label)
+        self.iconPath = iconPath
+        self.globalHotkey = globalHotkey
+        self.path = path
+        
+    def getFullPath(self):
+        self.path._str
+        
+    def printUid(self):
+        print(self.uid)
+class FileItem(BaseItem):
+    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path, action):
+        super().__init__(parentMenu, label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
         self.path = path
 
-class FileItem(BaseItem):
-    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path, action):
-        super().__init__(parentMenu, label, iconPath)
-        self.iconPath = iconPath
-        self.globalHotkey = globalHotkey
-        self.path = path
-    
+    def getFullPath(self):
+        self.path._str
+        
+    def onClick(self):
+        self.getFullPath()
+        
+    def printUid(self):
+        print(self.uid)

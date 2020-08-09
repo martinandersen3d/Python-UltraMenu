@@ -43,12 +43,28 @@ class Window(QMainWindow):
         list = self.get_directory(dir, dirMenu)
         for item in list:
             if type(item) is FolderItem:
-                dirMenu.addMenu(self.icon['folder'], item.label)
+                newFolder = dirMenu.addMenu( self.icon['folder'], '&' + item.label)
+
+                # dirMenu.setMouseTracking(True)
+                # dirMenu.mouseMoveEvent(print('sdf'))
+                # newFolder.mouseMoveEvent(self.hover(QMouseEvent ))
+                # newFolder.aboutToShow(self.action_directory(item.uid))
+                # newFolder.triggered.connect(self.action_directory(item.uid))
+                
+                # newFolder.aboutToShow.connect(lambda:  item.printUid())
+                # newFolder.aboutToShow.connect(self.action_directory(item.uid))
+                
             if type(item) is FileItem:
-                dirMenu.addMenu(self.icon['file'], item.label)
-               
-            
-    
+                
+                newFile = dirMenu.addAction(self.icon['file'], item.label)
+                # newFile.triggered.connect(self.action_directory(item.uid))
+                # newFile.hovered.connect(self.exit_app)
+                # newFile.hovered.connect(lambda:  item.printUid())
+                
+                func = self.hover()
+                    
+
+                newFile.hovered.connect(lambda f=func,arg=newFile:f(arg))
 
     def get_directory(self, dir: str, parentMenu: QMenu):
         dirPath = dir
@@ -65,8 +81,8 @@ class Window(QMainWindow):
                 filesAndFoldersArr.append(folderItem)
             elif item.is_file():
                 fileItem = FileItem(parentMenu, item.name, '', '', item, '')
-                uid = folderItem.getUid()
-                self.objectList[uid] = folderItem
+                uid = fileItem.getUid()
+                self.objectList[uid] = fileItem
                 filesAndFoldersArr.append(fileItem)
                 # filename
                 # item.name
@@ -75,7 +91,17 @@ class Window(QMainWindow):
             else:  
                 print("It is a special file (socket, FIFO, device file)" )
         return filesAndFoldersArr
-            
+
+    def action_directory(self, uid):
+        print(uid)
+
+    def hover(self, args ) -> None:
+        print('hoverr')
+        # """Simulate a mouse hover over the element."""
+        # pos = self._mouse_pos()
+        # event = QMouseEvent(QEvent.MouseMove, pos, Qt.NoButton, Qt.NoButton,
+        #                     Qt.NoModifier)
+        # self._tab.send_event(event)             
 
     def add_exit(self):
         exit = self.menu.addAction(self.icon['quit'],'&Quit')      
