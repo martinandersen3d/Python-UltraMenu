@@ -7,3 +7,8 @@ https://www.programcreek.com/python/example/106689/PyQt5.QtGui.QMouseEvent
 https://stackoverflow.com/questions/52575175/how-to-use-qmenu-signals
 
 https://python.hotexamples.com/examples/PyQt4.QtGui/QMenu/show/python-qmenu-show-method-examples.html
+
+
+on menu hover 
+https://stackoverflow.com/questions/63328979/dynamic-menu-abouttoshow-and-addaction-hover
+https://stackoverflow.com/questions/45090982/passing-extra-arguments-through-connect

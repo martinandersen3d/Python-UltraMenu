@@ -53,6 +53,7 @@ class Window(QMainWindow):
                 
                 # newFolder.aboutToShow.connect(lambda:  item.printUid())
                 # newFolder.aboutToShow.connect(self.action_directory(item.uid))
+                newFolder.aboutToShow.connect(lambda item=item : self.hover(item))
                 
             if type(item) is FileItem:
                 
@@ -61,10 +62,10 @@ class Window(QMainWindow):
                 # newFile.hovered.connect(self.exit_app)
                 # newFile.hovered.connect(lambda:  item.printUid())
                 
-                func = self.hover()
-                    
-
-                newFile.hovered.connect(lambda f=func,arg=newFile:f(arg))
+                # func = self.hover()
+                # newFile.hovered.connect(lambda f=func,arg=newFile:f(arg))
+                
+                
 
     def get_directory(self, dir: str, parentMenu: QMenu):
         dirPath = dir
@@ -96,7 +97,7 @@ class Window(QMainWindow):
         print(uid)
 
     def hover(self, args ) -> None:
-        print('hoverr')
+        print(args.uid)
         # """Simulate a mouse hover over the element."""
         # pos = self._mouse_pos()
         # event = QMouseEvent(QEvent.MouseMove, pos, Qt.NoButton, Qt.NoButton,
