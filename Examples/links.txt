@@ -12,3 +12,6 @@ https://python.hotexamples.com/examples/PyQt4.QtGui/QMenu/show/python-qmenu-show
 on menu hover 
 https://stackoverflow.com/questions/63328979/dynamic-menu-abouttoshow-and-addaction-hover
 https://stackoverflow.com/questions/45090982/passing-extra-arguments-through-connect
+
+use:
+dirMenu.aboutToShow.connect(lambda dirMenu=dirMenu : self.current_hover(dirMenu))
