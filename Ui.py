@@ -58,6 +58,7 @@ class FolderItem(BaseItem):
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
         self.osPath = path
+        self.isSubmenuItemsAdded = False
         
     def getFullPath(self):
         # return ''
