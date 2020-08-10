@@ -32,7 +32,7 @@ class Window(QMainWindow):
         searchMenu = mainMenu.addMenu("Font")
         helpMenu = mainMenu.addMenu("Help")
  
-        openAction = QAction(QIcon('./Examples/Icons/icon.png'), "Open", self)
+        openAction = QAction(QIcon('./Examples/icons/icon.png'), "Open", self)
         openAction.setShortcut("Ctrl+O")
  
         saveAction = QAction(QIcon('save.png'), "&Save", self)
@@ -60,7 +60,7 @@ class Window(QMainWindow):
         # seperator
         fileMenu.insertSeparator(save2Action)
         
-        fileMenu.insertSection(saveAction, QIcon('./Examples/Icons/icon.png'), "Insert Section")
+        fileMenu.insertSection(saveAction, QIcon('./Examples/icons/icon.png'), "Insert Section")
         fileMenu.addAction(exitAction)
  
  

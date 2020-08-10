@@ -23,7 +23,7 @@ class Window(QMainWindow):
         super().__init__()
         
         self.objectList = {}
-        self.icon = {
+        self.systemIcon = {
             'folder': QIcon(QApplication.style().standardIcon(QStyle.SP_DirIcon)),
             'file': QIcon(QApplication.style().standardIcon(QStyle.SP_FileIcon)),
             'quit': QIcon(QApplication.style().standardIcon(QStyle.SP_DialogCloseButton))
@@ -38,7 +38,7 @@ class Window(QMainWindow):
         self.menu.addAction('Add')
 
     def add_directory(self, label, dir):
-        qtParentMenuItem = self.menu.addMenu(self.icon['folder'], label)
+        qtParentMenuItem = self.menu.addMenu(self.systemIcon['folder'], label)
         parentMenuClass = FolderItem(qtMenuItem = qtParentMenuItem, label = label, iconPath = '', globalHotkey = '', path = Path(dir))
         uid = parentMenuClass.getUid()
         self.objectList[uid] = parentMenuClass
@@ -58,7 +58,7 @@ class Window(QMainWindow):
             for item in osPaths:
                 # path = dirPath + '/' + item.name 
                 if item.is_dir():
-                    qtFolderItem = qtParentMenuItem.addMenu( self.icon['folder'], '&' + item.name)
+                    qtFolderItem = qtParentMenuItem.addMenu( self.systemIcon['folder'], '&' + item.name)
                     folderItemClass = FolderItem(qtMenuItem = qtFolderItem, label = item.name, iconPath = '', globalHotkey = '', path = item)
                     uid = folderItemClass.getUid()
                     self.objectList[uid] = folderItemClass
@@ -67,7 +67,7 @@ class Window(QMainWindow):
                     # newFolder.triggered.connect(self.action_directory(item.uid))
                     
                 elif item.is_file():
-                    qtFileItem = qtParentMenuItem.addAction(self.icon['file'], item.name)
+                    qtFileItem = qtParentMenuItem.addAction(self.systemIcon['file'], item.name)
                     folderItemClass = FolderItem(qtMenuItem = qtFileItem, label = item.name, iconPath = '', globalHotkey = '', path = item)
                     uid = folderItemClass.getUid()
                     self.objectList[uid] = folderItemClass
@@ -89,7 +89,7 @@ class Window(QMainWindow):
         print(uid)         
 
     def add_exit(self):
-        exit = self.menu.addAction(self.icon['quit'],'&Quit')      
+        exit = self.menu.addAction(self.systemIcon['quit'],'&Quit')      
         self.menu.insertSeparator(exit)
         exit.triggered.connect(self.exit_app)
         self.menu.exec_(QCursor.pos())
