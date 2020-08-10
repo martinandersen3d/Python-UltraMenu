@@ -4,11 +4,13 @@ from pathlib import Path
 # dictionary = {'key1': 'val1', '1': 'val2'}
 
 class BaseItem:
-    def __init__(self, parentMenu, label: str):
+    def __init__(self,  qtMenuItem: QMenu, label: str):
         # Set a random string as the uid for the object
         self.uid = uuid.uuid4().hex
         self.label = label
-        self.parentMenu = parentMenu
+        # self.parentMenuClass = parentMenuClass
+        self.qtMenuItem = qtMenuItem
+        
 
     # Todo: add uid to global dictionary
     
@@ -25,47 +27,54 @@ class BaseItem:
         return self.uid
     
     
+    # Get qtMenuItem
+    def getQtMenuItem(self):
+        return self.qtMenuItem
+    
+    
     # Remove this object
     def removeSelf(self):
         return True
     
 class MenuItem(BaseItem):
-    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str):
-        super().__init__(parentMenu, label)
+    def __init__(self, qtMenuItem: QMenu,  label: str, iconPath:str, globalHotkey:str):
+        super().__init__( qtMenuItem, label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
     
 class SubMenuItem(BaseItem):
-    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str):
-        super().__init__(parentMenu, label)
+    def __init__(self, qtMenuItem: QMenu, label: str, iconPath:str, globalHotkey:str):
+        super().__init__( qtMenuItem, label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
 
 class SeperatorItem(BaseItem):
-    def __init__(self, parentMenu, label: str):
-        super().__init__(parentMenu, label)
+    def __init__(self,  qtMenuItem: QMenu,  label: str):
+        super().__init__( qtMenuItem, label)
 
 class FolderItem(BaseItem):
-    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path, action):
-        super().__init__(parentMenu, label)
+    def __init__(self, qtMenuItem: QMenu, label: str, iconPath:str, globalHotkey:str, path: Path):
+        super().__init__(qtMenuItem,  label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
-        self.path = path
+        self.osPath = path
         
     def getFullPath(self):
-        self.path._str
+        # return ''
+        return str(self.osPath)
+        # return self.osPath._str
         
     def printUid(self):
         print(self.uid)
 class FileItem(BaseItem):
-    def __init__(self, parentMenu, label: str, iconPath:str, globalHotkey:str, path: Path, action):
-        super().__init__(parentMenu, label)
+    def __init__(self, qtMenuItem: QMenu, label: str, iconPath:str, globalHotkey:str, path: Path):
+        super().__init__(qtMenuItem,  label)
         self.iconPath = iconPath
         self.globalHotkey = globalHotkey
-        self.path = path
+        self.osPath = path
 
     def getFullPath(self):
-        self.path._str
+        return str(self.osPath)
         
     def onClick(self):
         self.getFullPath()
