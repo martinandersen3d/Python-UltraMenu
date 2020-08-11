@@ -21,13 +21,13 @@ import Icons
 
 bgColor='#1F1F1F'
 appStyle="""
-QToolButton {{border: 0px solid #0F0F0F; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #7A7A7A, stop: 1 #0F0F0F); color: #EBEBEB}}
 QMenu QAbstractItemView  {{ border: 0px solid black; background-color: #7A7A7A; color: #EBEBEB; border-radius: 0; }}
 QMenu {{  font-size:10pt; selection-background-color: #ffaa00; selection-color: black; background-color: #7A7A7A; border-style: solid; border: 0px solid #EBEBEB; border-radius: 0; color: #EBEBEB; padding: 0px 0px 0px 0px; }}
-QMenu:on  {{padding-top: 0px; padding-left: 0px; background-color: #7A7A7A; selection-background-color: #ffaa00; color: #EBEBEB; border-radius: 0;}}
-QMenu:hover {{ border: 0px solid #ffa02f; }}
+QMenu:on  {{padding-top: 0px; padding-left: 0px; background-color: #AAAAAA; selection-background-color: #ffaa00; color: #EBEBEB; border-radius: 0;}}
+QMenu:item:selected {{ border: 0px solid #ffa02f; background-color: #111111;}}
 QMenu::item {{padding-left: 20px; }}
-QMenu::drop-down  {{ border-radius: 0px; background-color: #7A7A7A; color: #EBEBEB; }}""".format(bgColor) 
+QMenu::icon {{padding-left: 25px; }}
+""".format(bgColor) 
 
 
 class Window(QMainWindow):
@@ -48,9 +48,9 @@ class Window(QMainWindow):
  
     def create_menu(self):
         self.menu = QMenu(self)
-        # self.menu.setStyleSheet("QMenu {padding-left: 50px; padding-right: 20px;}")
-        # self.menu.setStyleSheet("QMenu::icon {padding-left: 50px; padding-right: 20px;}")
+        # Enable theme, uncomment:
         self.menu.setStyleSheet(appStyle)
+        self.menu.setCursor(QtCore.Qt.PointingHandCursor) 
         self.menu.addAction('Add')
 
     def add_directory(self, label, dir):
