@@ -21,15 +21,15 @@ import Icons
 
 bgColor='#1F1F1F'
 appStyle="""
-QMenu QAbstractItemView  {{ border: 0px solid black; background-color: #7A7A7A; color: #EBEBEB; border-radius: 0; }}
-QMenu {{  font-size:10pt; selection-background-color: #ffaa00; selection-color: black; background-color: #7A7A7A; border-style: solid; border: 0px solid #EBEBEB; border-radius: 0; color: #EBEBEB; padding: 0px 0px 0px 0px; }}
+QMenu QAbstractItemView  {{ border: 0px solid black; background-color: rgb(60,63,65); color: rgb(187,187,187); border-radius: 0; }}
+QMenu {{ font-family:Helvetica; font-size:14px; selection-background-color: #ffaa00; selection-color: black; background-color: rgb(60,63,65); border-style: solid; border: 0px solid #EBEBEB; border-radius: 0; color: rgb(187,187,187); padding: 0px 0px 0px 0px; }}
 QMenu:on  {{padding-top: 0px; padding-left: 0px; background-color: #AAAAAA; selection-background-color: #ffaa00; color: #EBEBEB; border-radius: 0;}}
-QMenu:item:selected {{ border: 0px solid #ffa02f; background-color: #111111;}}
-QMenu::item {{padding-left: 20px; }}
+QMenu:item:selected {{ border: 0px solid #ffa02f; background-color: rgb(75,110,175); color: rgb(200,200,200);}}
+QMenu::item {{padding: 4px 20px 4px 24px; }}
 QMenu::icon {{padding-left: 25px; }}
 """.format(bgColor) 
 
-
+# family="Helvetica", size=9
 class Window(QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
