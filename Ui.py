@@ -1,6 +1,7 @@
 import uuid 
 from PySide2.QtWidgets import  QAction, QMenu
 from pathlib import Path
+import IncludeExclude
 # dictionary = {'key1': 'val1', '1': 'val2'}
 
 class BaseItem:
@@ -11,7 +12,9 @@ class BaseItem:
         # self.parentMenuClass = parentMenuClass
         self.qtMenuItem = qtMenuItem
         
-
+        # Include / Exclude -------------------------------
+        self.includeExclude: IncludeExclude = None
+        
     # Todo: add uid to global dictionary
     
     # Add Child
@@ -30,6 +33,11 @@ class BaseItem:
     # Get qtMenuItem
     def getQtMenuItem(self):
         return self.qtMenuItem
+    
+    
+    # Set IncludeExlude files, ext's, paths
+    def setExcludeInclude(self, includeExclude: IncludeExclude):
+        self.includeExclude = includeExclude
     
     
     # Remove this object
@@ -67,6 +75,9 @@ class FolderItem(BaseItem):
         
     def printUid(self):
         print(self.uid)
+
+
+        
 class FileItem(BaseItem):
     def __init__(self, qtMenuItem: QMenu, label: str, iconPath:str, globalHotkey:str, path: Path):
         super().__init__(qtMenuItem,  label)
@@ -82,3 +93,4 @@ class FileItem(BaseItem):
         
     def printUid(self):
         print(self.uid)
+
