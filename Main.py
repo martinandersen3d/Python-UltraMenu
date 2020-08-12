@@ -44,7 +44,7 @@ class Window(QMainWindow):
         }
         self.filetypeIcon= Icons.icon_filetypes_flat(self)
         self.includeExclude = IncludeExclude()
-        self.includeExclude.includePaths = ['Examples', 'py', 'png']
+        self.includeExclude.includePaths = ['Examples']
         self.includeExclude.includeExtensions = ['md', 'py', 'png']
         self.includeExclude.excludeFilenames = ['gitignore']
         self.includeExclude.excludePaths = ['git', '__pycache__']
