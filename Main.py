@@ -27,7 +27,7 @@ QMenu:on  {{padding-top: 0px; padding-left: 0px; background-color: #AAAAAA; sele
 QMenu:item:selected {{ border: 0px solid #ffa02f; background-color: rgb(75,110,175); color: rgb(222,222,222);}}
 QMenu::item {{padding: 4px 20px 4px 12px; }}
 QMenu::icon {{padding-left: 11px; }}
-.singlestyle{{color: #FFAAAA; font-size:20px;background-color: #FFFFFF;padding-top: 10px; border-style: solid; border: 3px solid #EBEBEB; border-radius: 5; }}
+.singlestyle{{color: #BBBBBB; font-size:14px; background-color: #FFFFFF;padding: 10px; margin:10px; border-style: solid; border: 3px solid #111111; border-radius: 5; }}
 """.format(bgColor) 
 
 # family="Helvetica", size=9
