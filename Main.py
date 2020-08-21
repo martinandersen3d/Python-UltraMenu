@@ -3,7 +3,7 @@
 import sys
 import os
 from pathlib import Path
-from PySide2.QtWidgets import QApplication,QMainWindow, QAction, QStyle, QAction, QMenu
+from PySide2.QtWidgets import QApplication,QMainWindow, QAction, QStyle, QAction, QMenu, QToolTip, QWidgetAction, QLabel
 from PySide2.QtGui import QIcon, QCursor
 import PySide2.QtCore  as QtCore
 from PySide2 import QtGui, QtCore
@@ -27,6 +27,7 @@ QMenu:on  {{padding-top: 0px; padding-left: 0px; background-color: #AAAAAA; sele
 QMenu:item:selected {{ border: 0px solid #ffa02f; background-color: rgb(75,110,175); color: rgb(222,222,222);}}
 QMenu::item {{padding: 4px 20px 4px 12px; }}
 QMenu::icon {{padding-left: 11px; }}
+.singlestyle{{color: #FFAAAA; font-size:20px;background-color: #FFFFFF;padding-top: 10px; border-style: solid; border: 3px solid #EBEBEB; border-radius: 5; }}
 """.format(bgColor) 
 
 # family="Helvetica", size=9
@@ -60,7 +61,86 @@ class Window(QMainWindow):
         # Enable theme, uncomment:
         self.menu.setStyleSheet(appStyle)
         self.menu.setCursor(QtCore.Qt.PointingHandCursor) 
-        self.menu.addAction('Add')
+        tt1 = self.menu.addAction('Tooltip 1')
+        tt1.setToolTip('t1')
+        tt2 = self.menu.addAction('Tooltip 2')
+        tt2.setToolTip('t2')
+        tt3 = self.menu.addAction('Tooltip 3')
+        tt3.setWhatsThis('setWhatsThis')
+        tt3.setIconText('q')
+        tt3.iconText()
+        
+        # custom style label
+        text = QLabel("Label with custom text", self)
+        text.setProperty('class', 'singlestyle')
+        styleItem = QWidgetAction(self)
+        styleItem.setDefaultWidget(text)
+        styleItem.setProperty('class', 'singlestyle')
+        tt4 = self.menu.addAction(styleItem)
+        # tt4.setProperty('class', 'singlestyle')
+        
+        # tt4.Priority
+        # tt4.setStyleSheet("QLabel { color: rgb(50, 50, 50); font-size: 11px; background-color: rgba(188, 188, 188, 50); border: 1px solid rgba(188, 188, 188, 250); }")
+        self.menu.setToolTipsVisible(True)
+        # self.menu.setIcon
+        # self.menu.setwha(True)
+        # self.menu.hovered.connect(lambda tt1= tt1, tt1())
+        # self.menu.keyPressEvent(self.keyPressEvent)
+        # pos = tt3.
+        self.menu.installEventFilter(self)
+        # widgetRect = self.menu.mapToGlobal()
+        p = ( 0 , 0 )
+        # print(self.menu.mapToGlobal(0,0))
+        widgetRect = self.geometry()
+
+        print(widgetRect)
+        # tt2.hovered.connect(lambda tt2=self.tt2, tt2.tooltip())
+        tt3.hovered.connect(lambda pos = [self], parent = self.menu, index = 2: self.show_toolTip(pos, parent, index))
+
+    # Listen for All KeyPress/Mouse events
+    def eventFilter(self, widget, event):
+        if (event.type() == QtCore.QEvent.KeyRelease and
+            widget is self.menu):
+            self.menu.toolTip()
+            print('all')
+            
+            # self.
+            key = event.key()
+            if key == QtCore.Qt.Key_Escape:
+                print('escape')
+            else:
+                if key == QtCore.Qt.Key_Return:
+                    print('escape')
+                elif key == QtCore.Qt.Key_Enter:
+                    print('escape')
+                elif key == QtCore.Qt.Key_C:
+                    print('Key - c')
+                return True
+        # return QtGui.QWidget.eventFilter(self, widget, event)
+
+    def show_toolTip(self, pos, parent, index):
+        '''
+        **Parameters**
+            pos:    list
+                list of all parent widget up to the upmost
+
+            parent: PySide.QtGui.QAction
+                the parent QAction
+
+            index:  int
+                place within the QMenu, beginning with zero
+        '''
+        position_x = 0
+        position_y = 0
+        for widget in pos:
+            position_x += widget.pos().x()
+            position_y += widget.pos().y()
+
+        point = QtCore.QPoint()
+        point.setX(position_x)
+        point.setY(position_y + index * 22) # set y Position of QToolTip
+        QToolTip.showText(point, parent.toolTip())
+
 
     def add_directory(self, label, dir):
         
