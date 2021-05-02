@@ -14,7 +14,7 @@ import Icons
 from IncludeExclude import IncludeExclude
 # from PySide.QtGui import *
 # from PySide.QtCore import *
-# cross platform copy/paste
+# cross platform copy/pastedo
 # pip3 install pyperclip
 # import pyperclip
 # 
